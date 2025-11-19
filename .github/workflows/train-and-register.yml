@@ -16,18 +16,22 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install DVC  # <--- TAMBAH STEP INI (paling penting!)
+        uses: iterative/setup-dvc@v2
+
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
           pip install mlflow imbalanced-learn
 
-      - name: Cache dataset (biar dvc pull nggak error)
+      - name: Cache dataset (biar dvc nggak error)
         uses: actions/cache@v3
         with:
           path: data/raw/healthcare-dataset-stroke-data.csv
           key: dataset-v1-${{ hashFiles('data/raw/healthcare-dataset-stroke-data.csv.dvc') }}
 
-      - name: Run pipeline
+      - name: Reproduce pipeline
         run: dvc repro
 
       - name: Upload model terbaru
