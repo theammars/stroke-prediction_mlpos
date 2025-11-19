@@ -1,2 +1,5 @@
-/data
-/model
+/data/*.csv
+/data/*.parquet
+model/artifacts/
+model/*.joblib
+model/*.pkl
