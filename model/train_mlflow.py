@@ -76,5 +76,8 @@ with mlflow.start_run():
     with open("model/artifacts/latest/manifest.json", "w") as f:
         json.dump(manifest, f)
 
-    mlflow.sklearn.log_model(pipe, "model")
+    mlflow.log_artifact("model/artifacts/latest/stroke_pipeline.joblib", artifact_path="model")
+    mlflow.log_artifact("model/artifacts/latest/manifest.json", artifact_path="model")
+ 
     print(f"Training selesai! AUC = {auc:.4f}")
+    print(f"Run: https://dagshub.com/mzhammar/stroke-prediction.mlflow/#/experiments/0/runs/{mlflow.active_run().info.run_id}")

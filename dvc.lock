@@ -9,8 +9,8 @@ stages:
       size: 316971
     - path: model/train_mlflow.py
       hash: md5
-      md5: c75f0f31c270677a81693b35962b780f
-      size: 2519
+      md5: bcc4f150c089fb03e67ff6d0b663c9bc
+      size: 3015
     params:
       params.yaml:
         model.max_depth: 8
@@ -19,6 +19,6 @@ stages:
     outs:
     - path: model/artifacts/latest
       hash: md5
-      md5: c21fb7cb20b2470055f3110baf840c77.dir
+      md5: 882860b6f69b3bf1db5940c47533dda3.dir
       size: 7739907
       nfiles: 2
