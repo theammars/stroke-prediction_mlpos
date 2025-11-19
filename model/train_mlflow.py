@@ -15,6 +15,10 @@ from sklearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
 
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = "mzhammar"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "bebbb6c0c528440af049f0a4d6c07947e5b2908a"
+
 mlflow.set_tracking_uri("https://dagshub.com/mzhammar/stroke-prediction.mlflow")
 mlflow.set_experiment("Stroke Prediction")
 
