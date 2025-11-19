@@ -1,5 +1,6 @@
-/data/*.csv
-/data/*.parquet
+data/raw
+data/raw
+data/*.parquet
 model/artifacts/
 model/*.joblib
 model/*.pkl
