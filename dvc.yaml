@@ -1,0 +1,17 @@
+# dvc.yaml
+stages:
+  train:
+    cmd: python model/train_mlflow.py
+    deps:
+      - data/raw/healthcare-dataset-stroke-data.csv
+      - model/train_mlflow.py
+    params:
+      - model.n_estimators
+      - model.max_depth
+      - train.use_smote
+    outs:
+      - model/artifacts/latest:
+          persist: true                 
+    metrics:
+      - metrics/scores.json:
+          cache: false

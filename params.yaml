@@ -1,0 +1,6 @@
+train:
+  use_smote: true
+
+model:
+  n_estimators: 500
+  max_depth: 8
