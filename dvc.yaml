@@ -12,6 +12,3 @@ stages:
     outs:
       - model/artifacts/latest:
           persist: true                 
-    metrics:
-      - metrics/scores.json:
-          cache: false

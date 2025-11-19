@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/Ammar/OneDrive/Documents/Projek/stroke_prediction/mlruns/273784346810863162/models/m-95be5370b0ec478f9867b087c7ce96a5/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.1
+mlflow_version: 3.3.2
+model_id: m-95be5370b0ec478f9867b087c7ce96a5
+model_size_bytes: 7693186
+model_uuid: m-95be5370b0ec478f9867b087c7ce96a5
+prompts: null
+run_id: e5ef70b9754c4ea3bb03e88e5ffbc1d0
+utc_time_created: '2025-11-19 13:10:40.637352'

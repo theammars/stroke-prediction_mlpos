@@ -1,0 +1,24 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python model/train_mlflow.py
+    deps:
+    - path: data/raw/healthcare-dataset-stroke-data.csv
+      hash: md5
+      md5: 3f25a4c2f2963d969e1a156c08968577
+      size: 316971
+    - path: model/train_mlflow.py
+      hash: md5
+      md5: c75f0f31c270677a81693b35962b780f
+      size: 2519
+    params:
+      params.yaml:
+        model.max_depth: 8
+        model.n_estimators: 500
+        train.use_smote: true
+    outs:
+    - path: model/artifacts/latest
+      hash: md5
+      md5: c21fb7cb20b2470055f3110baf840c77.dir
+      size: 7739907
+      nfiles: 2

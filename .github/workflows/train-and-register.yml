@@ -2,13 +2,8 @@ name: Train and Register Model
 
 on:
   push:
-    branches: [ "main" ]
-    paths:
-      - "model/**"
-      - "app/**"
-      - "requirements.txt"
-      - ".github/workflows/train-and-register.yml"
-  workflow_dispatch: {}
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   train:
@@ -16,37 +11,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest  
+          pip install mlflow imbalanced-learn
 
-      - name: Check dataset exists
-        run: |
-          if [ ! -f data/healthcare-dataset-stroke-data.csv ]; then
-            echo "ERROR: data/healthcare-dataset-stroke-data.csv not found. Upload dataset to data/."
-            exit 1
-          fi
+      - name: Cache dataset (biar dvc pull nggak error)
+        uses: actions/cache@v3
+        with:
+          path: data/raw/healthcare-dataset-stroke-data.csv
+          key: dataset-v1-${{ hashFiles('data/raw/healthcare-dataset-stroke-data.csv.dvc') }}
 
-      - name: Train model
-        run: python model/train.py
+      - name: Run pipeline
+        run: dvc repro
 
-      - name: Run tests
-        run: |
-          pip install pytest
-          PYTHONPATH=. pytest -q --disable-warnings --maxfail=1
-
-      - name: Pack artifacts
-        run: |
-          tar -czf model_artifacts.tgz -C model artifacts
-
-      - name: Upload artifacts
+      - name: Upload model terbaru
         uses: actions/upload-artifact@v4
         with:
-          name: model_artifacts
-          path: model_artifacts.tgz
+          name: model-latest
+          path: model/artifacts/latest/

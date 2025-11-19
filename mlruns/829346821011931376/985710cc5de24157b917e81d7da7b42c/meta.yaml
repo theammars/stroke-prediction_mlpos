@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Ammar/OneDrive/Documents/Projek/stroke_prediction/mlruns/829346821011931376/985710cc5de24157b917e81d7da7b42c/artifacts
+end_time: 1763558075962
+entry_point_name: ''
+experiment_id: '829346821011931376'
+lifecycle_stage: active
+run_id: 985710cc5de24157b917e81d7da7b42c
+run_name: respected-colt-514
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763558045322
+status: 3
+tags: []
+user_id: Ammar
