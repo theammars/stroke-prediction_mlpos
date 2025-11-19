@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install DVC  # <--- TAMBAH STEP INI (paling penting!)
+      - name: Install DVC  
         uses: iterative/setup-dvc@v2
 
       - name: Install dependencies
@@ -25,11 +25,19 @@ jobs:
           pip install -r requirements.txt
           pip install mlflow imbalanced-learn
 
-      - name: Cache dataset (biar dvc nggak error)
+      - name: Cache dataset
         uses: actions/cache@v3
+        id: cache-dataset
         with:
           path: data/raw/healthcare-dataset-stroke-data.csv
-          key: dataset-v1-${{ hashFiles('data/raw/healthcare-dataset-stroke-data.csv.dvc') }}
+          key: dataset-${{ hashFiles('data/raw/healthcare-dataset-stroke-data.csv.dvc') }}
+
+      - name: Download dataset if cache miss
+        if: steps.cache-dataset.outputs.cache-hit != 'true'
+        run: |
+          echo "Dataset not in cache – please upload it once using Cara #1"
+          echo "Atau gunakan remote storage"
+          exit 1
 
       - name: Reproduce pipeline
         run: dvc repro
