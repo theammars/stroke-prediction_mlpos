@@ -15,6 +15,7 @@ from sklearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
 
+mlflow.set_tracking_uri("https://dagshub.com/mzhammar/stroke-prediction.mlflow")
 mlflow.set_experiment("Stroke Prediction")
 
 # Konstanta
