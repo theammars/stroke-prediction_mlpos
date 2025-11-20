@@ -19,6 +19,6 @@ stages:
     outs:
     - path: model/artifacts/latest
       hash: md5
-      md5: 882860b6f69b3bf1db5940c47533dda3.dir
+      md5: 2addea6f7d53e8f714c800014322067c.dir
       size: 7739907
       nfiles: 2
