@@ -30,7 +30,8 @@ jobs:
           DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
           DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
         run: |
-          dvc remote modify origin endpointurl https://dagshub.com/$DAGSHUB_USER/stroke-prediction.dvc
+          dvc remote modify origin endpointurl https://dagshub.com/$DAGSHUB_USER/Tugas-Action-SD-MLOps.s3
+          dvc remote modify origin --local auth basic 
           dvc remote modify origin --local access_key_id $DAGSHUB_USER
           dvc remote modify origin --local secret_access_key $DAGSHUB_TOKEN
 
