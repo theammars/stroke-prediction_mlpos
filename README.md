@@ -2,7 +2,7 @@
 
 **End-to-end MLOps project**: Data Versioning (DVC + DagsHub) → Experiment Tracking (MLflow) → CI/CD (GitHub Actions) → Inference API (FastAPI + Docker)
 
-[![CI/CD](https://github.com/theammars/Tugas-Action-SD-MLOps/actions/workflows/train-and-register.yml/badge.svg)](https://github.com/theammars/Tugas-Action-SD-MLOps/actions/workflows/train-and-register.yml)
+[![CI/CD](https://github.com/theammars/stroke-prediction_mlpos/actions/workflows/train-and-register.yml/badge.svg)](https://github.com/theammars/stroke-prediction_mlpos/actions/workflows/train-and-register.yml)
 [![DagsHub](https://img.shields.io/badge/DagsHub-Repo-blue?logo=dvc)](https://dagshub.com/mzhammar/Tugas-Action-SD-MLOps)
 [![MLflow](https://img.shields.io/badge/MLflow-Experiments-orange)](https://dagshub.com/mzhammar/Tugas-Action-SD-MLOps.mlflow)
 
@@ -16,22 +16,22 @@
 
 ## Project Structure
 stroke_prediction/
-├── app/                  # FastAPI inference
-│   ├── main.py
-│   ├── schema.py
-│   └── inferences.py
-├── model/
-│   ├── train_mlflow.py   # Training script + MLflow logging
-│   └── artifacts/latest/ # Model terbaru otomatis
-├── data/raw/
-│   └── healthcare-dataset-stroke-data.csv.dvc
-├── test/                 # Unit tests
-├── .github/workflows/    # CI/CD GitHub Actions
-├── Dockerfile
-├── dvc.yaml
-├── dvc.lock
-├── params.yaml
-└── requirements.txt
+├── app/                  # FastAPI inference <br>
+│   ├── main.py <br>
+│   ├── schema.py<br>
+│   └── inferences.py<br>
+├── model/<br>
+│   ├── train_mlflow.py   # Training script + MLflow logging<br>
+│   └── artifacts/latest/ # Model terbaru otomatis<br>
+├── data/raw/<br>
+│   └── healthcare-dataset-stroke-data.csv.dvc<br>
+├── test/                 # Unit tests<br>
+├── .github/workflows/    # CI/CD GitHub Actions<br>
+├── Dockerfile<br>
+├── dvc.yaml<br>
+├── dvc.lock<br>
+├── params.yaml<br>
+└── requirements.txt<br>
 
 ## Quick Start
 
@@ -70,8 +70,7 @@ Open API on: http://localhost:8080/docs
 - GitHub Actions (CI/CD)
 
 ### Dataset
-Healthcare Dataset Stroke
-https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
+Healthcare Dataset Stroke: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
 
 ### Challenges & Lessons Learned
 - Integration of DVC S3 with DagsHub → must synchronize repo name & endpoint
